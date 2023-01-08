@@ -56,8 +56,6 @@
 					<span class='l3' ></span>
 				</span>
 			</a>
-			
-			
 			<!--=====================================================
 				Menu
 			=====================================================-->
@@ -102,8 +100,6 @@
 			</div>
 			
 			<div class='animation-block' ></div>
-			
-			
 			<!--=====================================================
 				Sections
 			=====================================================-->
@@ -118,13 +114,12 @@
 						<div class='v-align' >
 							<div class='inner' >
 								<div class='intro-text' >
+									{% for ho in hom %}
+									<h1>{{ ho.title }}</h1>
 									
-									<h1>I'm Paras Yadav</h1>
+									<p>{{ ho.description }}</p>
 									
-									<p>
-										A Programmer, Web Developer and Buddy From Earth
-									</p>
-									
+									{% endfor %}
 									<div class='intro-btns' >
 										
 										<a href='#about' class='btn-custom section-toggle' data-section='about' >
@@ -146,7 +141,6 @@
 				
 				</section>
 				
-				
 				<!--=====================================================
 					About Section
 				=====================================================-->
@@ -166,29 +160,30 @@
 								<div class='col-md-4' >
 									
 									<ul class='info-list' >
-										
+										{% for abu in about %}
 										<li>
 											<strong>Name:</strong>
-											<span>Paras Yadav</span>
+											<span>{{abu.name}}</span>
 										</li>
 										<li>
 											<strong>Age:</strong>
-											<span>23 Years</span>
+											<span>{{abu.age}} Years</span>
 										</li>
 										
 										<li>
 											<strong>Hometown:</strong>
-											<span>Rewari, Haryana</span>
+											<span>{{abu.home}}</span>
 										</li>
 
 										<li>
-											<strong>Residence:</strong>
-											<span>India</span>
+											<strong>Current Location:</strong>
+											<span>{{abu.current_loacation}}</span>
 										</li>
 										<li>
 											<strong>Phone no.</strong>
-											<span>+919306271325</span>
+											<span>{{abu.phone}}</span>
 										</li>
+
 									</ul>
 									
 								</div>
@@ -196,16 +191,9 @@
 								<div class='col-md-8' >
 								
 									<div class='about-text' >
-										<p>
-											Hello, my name is Paras Yadav and I am a computer science and engineering student at the Amity School of Engineering and Technology. I have experience working as a Python developer, backend developer, and web developer for companies such as Cppsecrets, Shackti Ayurvedics, and Board of School Education Haryana. Some of my technical skills include Python, Django, Flask, Java, Docker, Tkinter, HTML, CSS, Linux, ML/AI, MySQL, and SQLite. I have also completed personal projects such as a Smart Traffic Light with Pedestrian Detection System, Blood Donation Website, Sudoku Solver with GUI, Car Game, and WhatsApp Msg Bomber.
-										</p>
-										
-										<p>
-											I am also certified in SQL (Intermediate) by HackerRank. I am always looking for new opportunities to learn and grow, and am excited to see what the future holds.
-										</p>
-										
+										<p>{{abu.description|linebreaks}}</p>
 									</div>
-									
+									{% endfor %}
 									<div class='about-btns' >
 										
 										<a href='#resume' class='btn-custom btn-color section-toggle' data-section='resume' >
@@ -234,69 +222,24 @@
 								<h2>My <strong class='color' >Services</strong></h2>
 								
 							</div>
-							
-							
-							
+													
 							<div class='row' >
 								
 								<div class='col-md-4' >
 									<div class='service' >
-										
+										{% for ser in service %}
 										<div class='icon' >
-											<i class='icon-basic-display' ></i>
+											<i class='{{ser.icon}}' ></i>
 										</div>
-										
 										<div class='content' >
-											
-											<h4>Web Development</h4>
-											
-											<p>
-												Ei constituam theophrastus per, sea dolorum disputationi in, vel menandri suavitate similique in. Vide assum conceptam eum.
-											</p>
-											
-										</div>
-										
-									</div>
-								</div>
-								
-								<div class='col-md-4' >
-									<div class='service' >
-										
-										<div class='icon' >
-											<i class='icon-basic-keyboard' ></i>
-										</div>
-										
-										<div class='content' >
-											
-											<h4>Programming</h4>
-											
-											<p>
-												Ei constituam theophrastus per, sea dolorum disputationi in, vel menandri suavitate similique in. Vide assum conceptam eum.
-											</p>
-											
-										</div>
-										
-									</div>
-								</div>
-								
-								<div class='col-md-4' >
-									<div class='service' >
-										
-										<div class='icon' >
-											<i class='icon-basic-photo' ></i>
-										</div>
-										
-										<div class='content' >
-											
-											<h4>WordPress</h4>
-											
-											<p>
-												Ei constituam theophrastus per, sea dolorum disputationi in, vel menandri suavitate similique in. Vide assum conceptam eum.
-											</p>
-											
+											<h4>{{ser.name}}</h4>
+											<p> {{ser.description}} </p>
 										</div>
 									</div>
 								</div>
+								{% endfor %}
+
+
 							</div>
 						</div>
 					</div>
@@ -362,74 +305,24 @@
 							</div>
 							
 							<ul class='timeline' >
-								
+								{% for edu in education %}
 								<li>
 									
 									<div class='timeline-content' >
 										
-										<h4>Suraj School (CBSE)</h4>
+										<h4>{{edu.title}}</h4>
 										
 										<em>
-											<span>X Class</span>
-											<span>2015-2016</span>
-											<span>Kosli,HR</span>
+											<span>{{edu.class_name}}</span>
+											<span>{{edu.time}}</span>
+											<span>{{edu.location}}</span>
 
 										</em>
-										<ul>
-										<li>
-											<p><Strong>Marks: </Strong> 93%</p>
-										</li>
-										</ul>
+										<p>{{edu.description|linebreaks}}</p>
 									</div>
 									
 								</li>
-								
-								<li>
-									
-									<div class='timeline-content' >
-										
-										<h4>Suraj School (CBSE)</h4>
-										
-										<em>
-											<span>XII Class</span>
-											<span>2016-2018</span>
-											<span>Kosli,HR</span>
-										</em>
-
-										<ul>
-											<li><p> <strong>Subject :</strong> Physics / Chemistry / Mathematics</p> </li>
-											<li>
-												<p><Strong>Marks: </Strong> 83%</p>
-											</li>
-										</ul>
-										
-									</div>
-									
-								</li>
-								
-								<li>
-									
-									<div class='timeline-content' >
-										
-										<h4>Amity School of Engineering and Technology</h4>
-										
-										<em>
-											<span>Bachelor's Degree</span>
-											<span>2013-2016</span>
-											<span>Noida,UP</span>
-										</em>
-										
-										<p><ul>
-											<li><p><Strong>Major:</Strong> Computer Science &
-												Engineering</p></li>											<li><p><Strong>Grade: </Strong> 7.14</p></li>
-										</ul>
-										</p>
-										
-									</div>
-									
-								</li>
-								
-								
+								{% endfor %}
 								
 							</ul>
 							
@@ -500,7 +393,7 @@
 							</ul>
 							
 							<ul class='portfolio-items' >
-								{% for por in certi %}
+								{% for por in achi %}
 								
 								<li data-groups='["{{por.group}}"]' >
 									<div class='inner' >
@@ -509,7 +402,7 @@
 										<div class='overlay' >
 											
 											<a href='#popup-{{por.id}}' class='view-project' >
-												View Project
+												View Item
 											</a>
 											
 											<!--project popup-->
@@ -742,39 +635,19 @@
 									
 									<div class='contact-info-icons' >
 										
+										{% for con in contact %}
 										<div class='contact-info' >
 											
-											<i class='ion-ios-telephone-outline' ></i>
+											<i class='{{con.icon}}' ></i>
 											
-											<p>
-												(+91) 9306271325 <br>
-												(+91) 9466729680
-											</p>
+											<p>{{con.link1}} <br> {{con.link2}} </p>
 											
 										</div>
+										{% endfor %}
 										
+
+
 										
-										<div class='contact-info' >
-											
-											<i class='ion-android-globe' ></i>
-											<p>
-												Parasy787898@gmail.com
-												<br>
-												www.paras787898.tech
-											</p>
-										</div>
-										
-										
-										<div class='contact-info' >
-											
-											<i class='ion-social-github' ></i>
-											
-											<p>
-												github.com/parasy787898<br>
-												linkedin.com/in/parasy
-											</p>
-											
-										</div>
 									</div>
 								</div>
 							</div>

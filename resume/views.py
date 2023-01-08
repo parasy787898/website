@@ -17,7 +17,14 @@ def home(request):
   client=Client.objects.all()
   port=Portfolio.objects.all()
   certi=Certificate.objects.all()
-  context={'skill':skill,'exp':exp,'test':client, 'port':port,'certi':certi }
+  hom=Homee.objects.all()
+  about=About_me.objects.all()
+  service=Service.objects.all()
+  education=Education.objects.all()
+  contact=Contact.objects.all()
+  achi=Achievement.objects.all()
+
+  context={'skill':skill,'exp':exp,'test':client, 'port':port,'certi':certi, 'hom':hom, 'about':about, 'service':service,'education':education, 'contact':contact, 'achi':achi, }
   
   return render(request,'resume/index.html',context ) 
 
