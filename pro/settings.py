@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-9vyk(twc%fnk1)6)d1$3hmv5lqi-k_^n=s%ld7ko6*$7g3gu-^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'resume'
+    'resume',
+    'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'pro.urls'
@@ -132,7 +134,9 @@ if DEBUG:
 else:
     STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
-STATIC_URL = 'static/'
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+
+STATIC_URL = '/static/'
 MEDIA_URL = 'img/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
